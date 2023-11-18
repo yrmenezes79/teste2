@@ -5,18 +5,12 @@ on:
   pull_request:
   workflow_dispatch:
 
-jobs: 
+jobs:
   horusec:
     runs-on: ubuntu-latest
     steps:
-     - name: Set up Docker
-       uses: actions/setup-docker@v2
-       with:
-         # Specify the Docker version if needed
-         docker-version: '19.03.13'
-
-     - name: Running Horus Security
-       id: step_horusec
-       run: |
+      - name: Running Horus Security
+        id: step_horusec
+        run: |
           curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
           horusec start -p ./
