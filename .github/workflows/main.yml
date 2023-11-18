@@ -9,6 +9,12 @@ jobs:
   horusec:
     runs-on: ubuntu-latest
     steps:
+     - name: Set up Docker
+       uses: actions/setup-docker@v2
+       with:
+         # Specify the Docker version if needed
+         docker-version: '19.03.13'
+
      - name: Running Horus Security
        id: step_horusec
        run: |
